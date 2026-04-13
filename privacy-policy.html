@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy | TrademarkTech Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --black:#050609;--navy:#080d1a;--navy-mid:#0d1528;--navy-light:#111e3a;
+      --gold:#c9a84c;--gold-light:#e2c476;--gold-dim:#8a6f30;
+      --gold-glow:rgba(201,168,76,0.15);--white:#f5f0e8;--muted:#8a94a8;
+      --border:rgba(201,168,76,0.2);
+      --ff-head:'Cormorant Garamond',serif;--ff-body:'Barlow',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--white);font-family:var(--ff-body);font-size:16px;line-height:1.7;overflow-x:hidden}
+    ::selection{background:var(--gold);color:var(--black)}
+    ::-webkit-scrollbar{width:4px}
+    ::-webkit-scrollbar-track{background:var(--navy)}
+    ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+    .wide{max-width:1200px;margin:0 auto;padding:0 2rem}
+    .container{max-width:920px;margin:0 auto;padding:0 2rem}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:1.1rem 0;background:rgba(5,6,9,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:var(--ff-head);font-size:1.45rem;font-weight:600;color:var(--white);text-decoration:none;letter-spacing:.02em}
+    .logo span{color:var(--gold)}
+    .nav-back{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:.45rem;transition:color .25s}
+    .nav-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+    .nav-back:hover{color:var(--gold)}
+
+    /* PAGE HERO */
+    .page-hero{padding:9rem 0 4.5rem;background:linear-gradient(160deg,#050609 0%,#080d1a 55%,#050609 100%);position:relative;border-bottom:1px solid var(--border);overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:70px 70px;pointer-events:none}
+    .hero-glow{position:absolute;top:50%;right:-100px;transform:translateY(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none}
+    .hero-inner{position:relative;z-index:1}
+    .eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.9rem}
+    .page-title{font-family:var(--ff-head);font-size:clamp(2.6rem,5.5vw,4.2rem);font-weight:600;line-height:1.06;color:var(--white);margin-bottom:1rem}
+    .page-title em{font-style:italic;color:var(--gold)}
+    .page-meta{font-size:.75rem;color:var(--muted);font-weight:300;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+    .page-meta-item{display:flex;align-items:center;gap:.4rem}
+    .page-meta-item svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:2}
+
+    /* DOC LAYOUT */
+    .doc-wrap{display:grid;grid-template-columns:230px 1fr;gap:5rem;padding:5rem 0 7rem;align-items:start}
+    .toc{position:sticky;top:5.5rem}
+    .toc-lbl{font-size:.62rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1.1rem}
+    .toc ul{list-style:none;display:flex;flex-direction:column;gap:.05rem}
+    .toc ul a{font-size:.78rem;color:var(--muted);text-decoration:none;padding:.42rem .9rem;display:block;border-left:2px solid transparent;transition:all .22s;font-weight:400}
+    .toc ul a:hover,.toc ul a.on{color:var(--gold);border-left-color:var(--gold);background:rgba(201,168,76,.06)}
+
+    /* CONTENT */
+    .doc-body{min-width:0}
+    .sec{margin-bottom:3.5rem;padding-bottom:3.5rem;border-bottom:1px solid var(--border)}
+    .sec:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .anc{display:block;margin-top:-5.5rem;padding-top:5.5rem;visibility:hidden}
+    .sec h2{font-family:var(--ff-head);font-size:1.75rem;font-weight:600;color:var(--white);margin-bottom:1.1rem;line-height:1.2;padding-left:1.2rem;position:relative}
+    .sec h2::before{content:'';position:absolute;left:0;top:.2em;width:3px;height:1em;background:var(--gold)}
+    .sec h3{font-family:var(--ff-head);font-size:1.15rem;font-weight:600;color:var(--white);margin:1.8rem 0 .65rem}
+    .sec p{font-size:.9rem;color:var(--muted);font-weight:300;line-height:1.9;margin-bottom:1rem}
+    .sec p:last-child{margin-bottom:0}
+    .sec ul,.sec ol{padding-left:1.5rem;margin-bottom:1rem}
+    .sec li{font-size:.88rem;color:var(--muted);font-weight:300;line-height:1.85;margin-bottom:.4rem}
+    .sec ul li::marker{color:var(--gold)}
+    .sec ol li::marker{color:var(--gold);font-weight:600}
+    .sec a{color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(226,196,118,.25);transition:border-color .2s}
+    .sec a:hover{border-color:var(--gold-light)}
+
+    .callout{background:var(--navy-mid);border:1px solid var(--border);border-left:3px solid var(--gold);padding:1.4rem 1.8rem;margin:1.5rem 0}
+    .callout p{font-size:.86rem;color:var(--muted);margin:0;line-height:1.85}
+    .callout strong{color:var(--white)}
+
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.2rem 0}
+    .gi{background:var(--navy-mid);border:1px solid var(--border);padding:1.1rem 1.4rem}
+    .gi-lbl{font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.28rem}
+    .gi-val{font-size:.85rem;color:var(--white);font-weight:400}
+
+    /* FOOTER */
+    footer{background:var(--navy);border-top:1px solid var(--border);padding:2.5rem 0}
+    .foot-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .foot-copy{font-size:.73rem;color:var(--muted);font-weight:300}
+    .foot-copy span{color:var(--gold)}
+    .foot-links{display:flex;gap:1.5rem}
+    .foot-links a{font-size:.73rem;color:var(--muted);text-decoration:none;font-weight:300;transition:color .25s}
+    .foot-links a:hover{color:var(--gold)}
+
+    @media(max-width:768px){
+      .doc-wrap{grid-template-columns:1fr;gap:2rem}
+      .toc{position:static;background:var(--navy-mid);border:1px solid var(--border);padding:1.3rem 1.5rem}
+      .foot-row{flex-direction:column;text-align:center}
+      .grid2{grid-template-columns:1fr}
+      .page-meta{gap:1rem}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wide">
+    <div class="nav-inner">
+      <a href="https://trademarktechsolutions.com/" class="logo">Trademark<span>Tech</span> Solutions</a>
+      <a href="https://trademarktechsolutions.com/" class="nav-back">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Home
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <span class="eyebrow">Legal Documentation</span>
+      <h1 class="page-title">Privacy <em>Policy</em></h1>
+      <div class="page-meta">
+        <div class="page-meta-item">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Last Updated: January 1, 2025
+        </div>
+        <div class="page-meta-item">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          TrademarkTech Solutions
+        </div>
+        <div class="page-meta-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Kalispell, MT 59901, US
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wide">
+    <div class="doc-wrap">
+
+      <!-- TOC -->
+      <aside class="toc">
+        <span class="toc-lbl">Contents</span>
+        <ul>
+          <li><a href="#s1">1. Overview</a></li>
+          <li><a href="#s2">2. Information We Collect</a></li>
+          <li><a href="#s3">3. How We Use It</a></li>
+          <li><a href="#s4">4. Sharing &amp; Disclosure</a></li>
+          <li><a href="#s4phone">4.5 Phone &amp; Contact Data</a></li>
+          <li><a href="#s5">5. Cookies &amp; Tracking</a></li>
+          <li><a href="#s6">6. Data Security</a></li>
+          <li><a href="#s7">7. Data Retention</a></li>
+          <li><a href="#s8">8. Your Rights</a></li>
+          <li><a href="#s9">9. Payment Data</a></li>
+          <li><a href="#s10">10. Third-Party Services</a></li>
+          <li><a href="#s11">11. Children's Privacy</a></li>
+          <li><a href="#s12">12. Policy Changes</a></li>
+          <li><a href="#s13">13. Contact Us</a></li>
+        </ul>
+      </aside>
+
+      <!-- BODY -->
+      <div class="doc-body">
+
+        <div class="sec">
+          <span class="anc" id="s1"></span>
+          <h2>1. Overview</h2>
+          <div class="callout"><p><strong>Plain language summary:</strong> TrademarkTech Solutions takes your privacy seriously. We collect only what we need to serve you, we never sell your personal data to third parties, and we protect everything you share with us using industry-standard security measures.</p></div>
+          <p>TrademarkTech Solutions ("we," "us," or "our"), headquartered at 1001 S. Main St., Ste 500, Kalispell, MT 59901, US, is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard information when you visit our website or engage our services.</p>
+          <p>By using our website or services, you agree to the practices described in this policy. If you do not agree, please discontinue use of our website immediately. This policy applies to all information collected through our website, contact forms, email, phone, and all related services we provide.</p>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s2"></span>
+          <h2>2. Information We Collect</h2>
+          <h3>2.1 Information You Provide Directly</h3>
+          <ul>
+            <li><strong>Identity &amp; Contact Information:</strong> First name, last name, email address, and phone number provided through our contact form or service inquiries</li>
+            <li><strong>Business Information:</strong> Company name, industry, and details about the services you require</li>
+            <li><strong>Payment Information:</strong> Billing details processed securely through Stripe. We do not store full card numbers on our servers at any time</li>
+            <li><strong>Communications:</strong> Messages, emails, documents, and other content you send us through any channel</li>
+            <li><strong>Project Information:</strong> Details about your app, website, social media, business registration, or PR requirements that you share with us to receive services</li>
+          </ul>
+          <h3>2.2 Information Collected Automatically</h3>
+          <ul>
+            <li>IP address and approximate geographic location</li>
+            <li>Browser type, version, and operating system</li>
+            <li>Pages visited, time spent, and navigation patterns on our website</li>
+            <li>Referring URLs and exit pages</li>
+            <li>Device identifiers and screen resolution</li>
+            <li>Cookie and session data (see Section 5)</li>
+          </ul>
+          <h3>2.3 Information From Third Parties</h3>
+          <p>We may receive limited information about you from referral partners, business directories, or social media platforms when you interact with our content — only to the extent relevant to providing or improving our services.</p>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s3"></span>
+          <h2>3. How We Use Your Information</h2>
+          <ul>
+            <li><strong>Service Delivery:</strong> To provide app development, website development, social media marketing, business registration, business consultancy, and PR services you engage us for</li>
+            <li><strong>Client Communication:</strong> To respond to inquiries, send project updates, provide consultations, and manage your account</li>
+            <li><strong>Payment Processing:</strong> To process, record, and manage payments for services rendered through our secure payment processor</li>
+            <li><strong>Service Improvement:</strong> To analyse usage patterns, improve our website experience, and develop new service offerings</li>
+            <li><strong>Legal Compliance:</strong> To comply with applicable laws, regulations, and contractual obligations</li>
+            <li><strong>Marketing Communications:</strong> To send newsletters, updates, or promotional content — only with your explicit consent and always with an easy opt-out option</li>
+            <li><strong>Security:</strong> To detect, prevent, and investigate fraud, abuse, or security incidents</li>
+          </ul>
+          <div class="callout"><p><strong>We do not sell, rent, or trade your personal information to any third party for marketing or commercial purposes. This is an absolute and unconditional commitment.</strong></p></div>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s4"></span>
+          <h2>4. Sharing &amp; Disclosure</h2>
+          <h3>4.1 Trusted Service Providers</h3>
+          <p>We engage carefully selected third-party vendors to help operate our business — including payment processors (Stripe), email service providers, cloud hosting platforms, project management tools, and website analytics services. These vendors are contractually obligated to protect your data and may not use it for any purpose beyond providing services to us.</p>
+          <h3>4.2 Business Registration Authorities</h3>
+          <p>When providing business registration services on your behalf, we may submit your information to relevant state, federal, or international registration authorities as required to fulfil the service. This is done only with your instruction and consent.</p>
+          <h3>4.3 Legal Requirements</h3>
+          <p>We may disclose your information if required by law, court order, subpoena, or if we reasonably believe disclosure is necessary to protect the rights, property, or safety of TrademarkTech Solutions, our clients, or the public.</p>
+          <h3>4.4 Business Transfers</h3>
+          <p>In the event of a merger, acquisition, or sale of all or substantially all of our assets, your information may be transferred. We will notify you via email or website notice of any such change and any choices you may have.</p>
+          <h3>4.5 Protection of Client Phone Numbers &amp; Personal Contact Information</h3>
+          <span class="anc" id="s4phone"></span>
+          <div class="callout"><p><strong>Your phone number, email address, and all personal contact details you provide to us are strictly confidential.</strong> We will never share, sell, rent, disclose, or transfer your phone number or any personal contact information to any third party — including advertisers, marketing agencies, data brokers, or partner companies — without your <strong>explicit, prior written consent</strong>. This applies regardless of the purpose or the party requesting the information. You will always be informed of exactly who your data will be shared with, why, and for how long, before any such sharing takes place. You retain the right to refuse or withdraw consent at any time with no impact on your services.</p></div>
+
+          <h3>4.6 With Your Consent</h3>
+          <p>We may share your information for any other purpose only with your explicit prior written consent.</p>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s5"></span>
+          <h2>5. Cookies &amp; Tracking Technologies</h2>
+          <p>Our website uses cookies and similar technologies to enhance your experience and understand how our site is used.</p>
+          <h3>Types of Cookies We Use</h3>
+          <ul>
+            <li><strong>Essential Cookies:</strong> Required for the website to function correctly. These cannot be disabled without affecting core functionality.</li>
+            <li><strong>Analytics Cookies:</strong> Help us understand visitor interactions (e.g., Google Analytics). Data is aggregated and anonymised where possible.</li>
+            <li><strong>Preference Cookies:</strong> Remember your settings and choices to improve your experience on return visits.</li>
+            <li><strong>Marketing Cookies:</strong> Used only if you have consented. You may opt out at any time through your browser settings or our cookie preferences.</li>
+          </ul>
+          <p>You can manage or disable cookies through your browser settings at any time. Note that disabling certain cookies may limit the functionality of our website. To opt out of Google Analytics, visit <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a>.</p>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s6"></span>
+          <h2>6. Data Security</h2>
+          <p>We implement industry-standard technical and organisational security measures to protect your personal information against unauthorised access, disclosure, alteration, or destruction, including:</p>
+          <ul>
+            <li>SSL/TLS encryption for all data transmitted through our website</li>
+            <li>Secure, access-controlled servers with regular third-party security assessments</li>
+            <li>Strict staff access controls on a need-to-know basis</li>
+            <li>Payment data processed exclusively by PCI-DSS compliant processors (Stripe)</li>
+            <li>Regular security awareness training for all personnel</li>
+          </ul>
+          <p>While we take every reasonable precaution, no method of internet transmission or electronic storage is 100% secure. In the event of a data breach that materially affects your rights, we will notify you as required by applicable law without undue delay.</p>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s7"></span>
+          <h2>7. Data Retention</h2>
+          <p>We retain your personal information only for as long as necessary to fulfil the purposes outlined in this policy, comply with our legal and contractual obligations, resolve disputes, and enforce our agreements.</p>
+          <ul>
+            <li><strong>Active Client Records:</strong> Retained for the duration of the service engagement plus 5 years thereafter for legal and accounting purposes</li>
+            <li><strong>Contact Form Submissions:</strong> Retained for up to 2 years if no service engagement follows</li>
+            <li><strong>Website Analytics:</strong> Aggregated data retained for up to 26 months</li>
+            <li><strong>Marketing Contacts:</strong> Retained until you withdraw consent or unsubscribe</li>
+            <li><strong>Payment Records:</strong> Retained for 7 years as required by financial record-keeping regulations</li>
+          </ul>
+          <p>You may request deletion of your personal data at any time. We will fulfil such requests subject to our legal retention obligations.</p>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s8"></span>
+          <h2>8. Your Rights</h2>
+          <p>Depending on your location, you may have the following rights regarding your personal information:</p>
+          <div class="grid2">
+            <div class="gi"><div class="gi-lbl">Right to Access</div><div class="gi-val">Request a copy of the personal data we hold about you</div></div>
+            <div class="gi"><div class="gi-lbl">Right to Rectification</div><div class="gi-val">Request correction of inaccurate or incomplete data</div></div>
+            <div class="gi"><div class="gi-lbl">Right to Erasure</div><div class="gi-val">Request deletion of your data, subject to legal retention requirements</div></div>
+            <div class="gi"><div class="gi-lbl">Right to Portability</div><div class="gi-val">Receive your data in a structured, machine-readable format</div></div>
+            <div class="gi"><div class="gi-lbl">Right to Object</div><div class="gi-val">Object to processing for direct marketing or based on legitimate interests</div></div>
+            <div class="gi"><div class="gi-lbl">Withdraw Consent</div><div class="gi-val">Withdraw consent at any time where processing is consent-based</div></div>
+          </div>
+          <p>California residents have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information is collected and the right to opt out of its sale. <strong>We do not sell personal information.</strong></p>
+          <p>To exercise any right, please contact us using the details in Section 13. We will respond within 30 days. We may need to verify your identity before fulfilling your request.</p>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s9"></span>
+          <h2>9. Payment Data &amp; Stripe</h2>
+          <p>All payment transactions on our website are processed by <strong>Stripe</strong>, a PCI-DSS Level 1 certified payment processor. When you make a payment, your card details are entered directly into Stripe's secure environment and are never transmitted to or stored on our servers.</p>
+          <p>Stripe may collect and process certain data in accordance with their own privacy policy, available at <a href="https://stripe.com/privacy" target="_blank">stripe.com/privacy</a>. By making a payment through our website, you also agree to Stripe's terms of service.</p>
+          <p>We retain only the transaction record (amount, date, service purchased, and a masked reference) necessary for our accounting and dispute resolution purposes.</p>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s10"></span>
+          <h2>10. Third-Party Services</h2>
+          <p>Our website and services integrate with or link to third-party platforms, each with their own privacy policies:</p>
+          <ul>
+            <li><strong>Stripe</strong> — Payment processing · <a href="https://stripe.com/privacy" target="_blank">stripe.com/privacy</a></li>
+            <li><strong>Web3Forms</strong> — Contact form submissions · <a href="https://web3forms.com/privacy" target="_blank">web3forms.com/privacy</a></li>
+            <li><strong>Google Analytics</strong> — Website analytics · <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></li>
+            <li><strong>Meta / Instagram</strong> — Social media marketing services · <a href="https://www.facebook.com/privacy/policy" target="_blank">facebook.com/privacy/policy</a></li>
+          </ul>
+          <p>We are not responsible for the privacy practices of these third parties. Links to external sites do not constitute our endorsement of their privacy practices.</p>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s11"></span>
+          <h2>11. Children's Privacy</h2>
+          <p>Our website and services are not directed to children under the age of 13 (or 16 in certain jurisdictions). We do not knowingly collect personal information from minors. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately and we will promptly delete such data from our records.</p>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s12"></span>
+          <h2>12. Changes to This Privacy Policy</h2>
+          <p>We may update this Privacy Policy from time to time to reflect changes in our practices, services, or applicable law. When we make material changes, we will update the "Last Updated" date at the top of this page and, where appropriate, notify active clients by email. Your continued use of our website or services after changes are posted constitutes your acceptance of the updated policy. We encourage you to review this page periodically to stay informed.</p>
+        </div>
+
+        <div class="sec">
+          <span class="anc" id="s13"></span>
+          <h2>13. Contact Us</h2>
+          <p>For any questions, concerns, or requests regarding this Privacy Policy or your personal data, please reach out to us:</p>
+          <div class="grid2">
+            <div class="gi"><div class="gi-lbl">Company</div><div class="gi-val">TrademarkTech Solutions</div></div>
+            <div class="gi"><div class="gi-lbl">Phone</div><div class="gi-val"><a href="tel:+14064172944" style="color:var(--gold-light);text-decoration:none">+1 (406) 417-2944</a></div></div>
+            <div class="gi"><div class="gi-lbl">Address</div><div class="gi-val">1001 S. Main St., Ste 500, Kalispell, MT 59901, US</div></div>
+            <div class="gi"><div class="gi-lbl">Response Time</div><div class="gi-val">Within 30 days of receiving your request</div></div>
+          </div>
+          <p style="margin-top:1rem">If you are a US resident and are not satisfied with our response, you may file a complaint with the Federal Trade Commission at <a href="https://www.ftc.gov" target="_blank">ftc.gov</a>.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wide">
+    <div class="foot-row">
+      <p class="foot-copy">© 2025 <span>TrademarkTech Solutions</span>. All rights reserved.</p>
+      <div class="foot-links">
+        <a href="https://trademarktechsolutions.com/">Home</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="https://trademarktechsolutions.com/terms.html">Terms &amp; Conditions</a>
+        <a href="https://trademarktechsolutions.com/#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const anchors = document.querySelectorAll('.anc');
+  const links = document.querySelectorAll('.toc ul a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        links.forEach(l => l.classList.toggle('on', l.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  anchors.forEach(a => io.observe(a));
+</script>
+</body>
+</html>
