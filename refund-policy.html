@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refund Policy | TrademarkTech Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0b; --surface: #111113; --border: #1e1e22; --accent: #c9a84c;
+      --accent-dim: rgba(201,168,76,0.12); --text: #e8e6e0; --muted: #7a7870; --white: #f5f3ee;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 4rem; background: rgba(10,10,11,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--white); text-decoration: none; letter-spacing: 0.01em; }
+    .nav-back { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    .nav-back:hover { opacity: 0.7; }
+    .nav-back::before { content: '←'; font-size: 0.9rem; }
+    .hero { text-align: center; padding: 6rem 2rem 5rem; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,168,76,0.07), transparent 70%); pointer-events: none; }
+    .hero-tag { display: inline-block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(201,168,76,0.3); padding: 0.35rem 1rem; border-radius: 2px; margin-bottom: 2rem; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 600; line-height: 1.1; color: var(--white); margin-bottom: 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-meta { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.04em; }
+    .page-wrap { max-width: 860px; margin: 0 auto; padding: 5rem 2rem 7rem; }
+    .toc { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 4px; padding: 2rem 2.5rem; margin-bottom: 4rem; }
+    .toc-title { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+    .toc ol { list-style: none; counter-reset: toc; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 2rem; }
+    .toc ol li { counter-increment: toc; font-size: 0.87rem; color: var(--muted); }
+    .toc ol li::before { content: counter(toc, decimal-leading-zero) ". "; color: var(--accent); font-weight: 600; }
+    .toc ol li a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .toc ol li a:hover { color: var(--text); }
+    .section { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border); }
+    .section:last-child { border-bottom: none; margin-bottom: 0; }
+    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
+    .section-num { font-size: 0.72rem; letter-spacing: 0.16em; color: var(--accent); font-weight: 600; flex-shrink: 0; }
+    .section h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 600; color: var(--white); line-height: 1.2; }
+    .section h2 em { font-style: italic; color: var(--accent); }
+    .section p { color: var(--text); margin-bottom: 1rem; font-size: 0.95rem; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul, .section ol { padding-left: 1.25rem; margin: 1rem 0; }
+    .section li { color: var(--text); font-size: 0.95rem; margin-bottom: 0.55rem; }
+    .callout { background: var(--accent-dim); border: 1px solid rgba(201,168,76,0.25); border-left: 3px solid var(--accent); border-radius: 4px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-size: 0.9rem; color: var(--text); }
+    .callout strong { color: var(--accent); }
+    .callout-dark { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid #444; border-radius: 4px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-size: 0.9rem; color: var(--muted); }
+    .eligibility-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.5rem 0; }
+    .elig-card { border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; background: var(--surface); }
+    .elig-card.eligible { border-top: 2px solid #4caf82; }
+    .elig-card.not-eligible { border-top: 2px solid #c9584c; }
+    .elig-label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; }
+    .elig-card.eligible .elig-label { color: #4caf82; }
+    .elig-card.not-eligible .elig-label { color: #c9584c; }
+    .elig-card ul { list-style: none; padding: 0; margin: 0; }
+    .elig-card li { font-size: 0.87rem; color: var(--text); padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
+    .elig-card li:last-child { border-bottom: none; }
+    .elig-card.eligible li::before { content: '✓  '; color: #4caf82; }
+    .elig-card.not-eligible li::before { content: '✗  '; color: #c9584c; }
+    .timeline { margin: 1.5rem 0; }
+    .timeline-item { display: flex; gap: 1.5rem; margin-bottom: 1.25rem; }
+    .timeline-num { width: 32px; height: 32px; background: var(--accent-dim); border: 1px solid rgba(201,168,76,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+    .timeline-content h4 { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+    .timeline-content p { font-size: 0.87rem; color: var(--muted); margin: 0; }
+    .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem; text-align: center; margin-top: 2rem; }
+    .contact-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--white); margin-bottom: 0.75rem; }
+    .contact-box p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .contact-grid { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+    .contact-item { text-align: left; }
+    .contact-item .label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; }
+    .contact-item a, .contact-item p { font-size: 0.9rem; color: var(--text); text-decoration: none; }
+    .contact-item a:hover { color: var(--accent); }
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.82rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero { padding: 4rem 1.5rem 3.5rem; }
+      .page-wrap { padding: 3rem 1.5rem 5rem; }
+      .toc ol { grid-template-columns: 1fr; }
+      .eligibility-grid { grid-template-columns: 1fr; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://trademarktechsolutions.com/" class="nav-logo">TrademarkTech Solutions</a>
+    <a href="https://trademarktechsolutions.com/" class="nav-back">Back to Home</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-tag">Legal Documentation</div>
+    <h1>Refund <em>Policy</em></h1>
+    <p class="hero-meta">Last Updated: January 1, 2025 &nbsp;·&nbsp; TrademarkTech Solutions, Kalispell, MT 59901, US</p>
+  </header>
+
+  <main class="page-wrap">
+
+    <nav class="toc" aria-label="Contents">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#s1">Overview</a></li>
+        <li><a href="#s2">Eligibility</a></li>
+        <li><a href="#s3">Non-Refundable Items</a></li>
+        <li><a href="#s4">Service-Specific Policy</a></li>
+        <li><a href="#s5">How to Request a Refund</a></li>
+        <li><a href="#s6">Processing & Timeline</a></li>
+        <li><a href="#s7">Disputes</a></li>
+        <li><a href="#s8">Changes to Policy</a></li>
+        <li><a href="#s9">Contact Us</a></li>
+      </ol>
+    </nav>
+
+    <section class="section" id="s1">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2>Overview</h2>
+      </div>
+      <div class="callout">
+        <strong>Plain Language Summary:</strong> We stand behind our work. If we haven't begun your project, you're entitled to a full refund. Once work has commenced, refunds are assessed on the work completed. We aim to be fair, transparent, and quick in every case.
+      </div>
+      <p>TrademarkTech Solutions ("we," "us," or "our") is committed to delivering exceptional services and ensuring client satisfaction. We understand that circumstances change, and this Refund Policy sets out the terms under which refunds are granted for our services.</p>
+      <p>By engaging our services or making a payment, you agree to the terms of this Refund Policy. This policy applies to all services offered by TrademarkTech Solutions including App Development, Website Development, Social Media Marketing, Business Registration, Business Consultancy, and PR Services.</p>
+    </section>
+
+    <section class="section" id="s2">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2>Refund <em>Eligibility</em></h2>
+      </div>
+      <p>Refund eligibility depends on when a cancellation request is made relative to the project timeline and the nature of the service engaged.</p>
+      <div class="eligibility-grid">
+        <div class="elig-card eligible">
+          <div class="elig-label">✓ Eligible for Refund</div>
+          <ul>
+            <li>Cancellation before project kickoff</li>
+            <li>Service not started within agreed timeframe</li>
+            <li>Duplicate payment made in error</li>
+            <li>Material failure to deliver agreed scope</li>
+            <li>Cancellation within 48 hrs of payment (pre-start)</li>
+          </ul>
+        </div>
+        <div class="elig-card not-eligible">
+          <div class="elig-label">✗ Not Eligible for Refund</div>
+          <ul>
+            <li>Work already commenced or delivered</li>
+            <li>Change of mind after project start</li>
+            <li>Third-party costs already incurred</li>
+            <li>Domain, hosting, or licensing fees</li>
+            <li>Retainer fees after service period begins</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="s3">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2>Non-Refundable <em>Items</em></h2>
+      </div>
+      <p>The following are strictly non-refundable under all circumstances:</p>
+      <ul>
+        <li><strong>Third-party fees</strong> — Government filing fees, domain registration, hosting subscriptions, software licences, and advertising spend already committed.</li>
+        <li><strong>Completed deliverables</strong> — Any milestone, document, design, code module, or report that has been delivered and accepted.</li>
+        <li><strong>Consultation sessions</strong> — Strategy sessions, discovery calls, and advisory hours that have already taken place.</li>
+        <li><strong>Rush or expedited service fees</strong> — Premium fees paid for accelerated delivery timelines.</li>
+        <li><strong>Social media ad spend</strong> — Funds spent directly on paid advertising campaigns on any platform.</li>
+      </ul>
+      <div class="callout-dark">
+        Note: Where a project involves both refundable and non-refundable components, only the eligible portion will be refunded after deducting costs already incurred.
+      </div>
+    </section>
+
+    <section class="section" id="s4">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2>Service-Specific <em>Policy</em></h2>
+      </div>
+      <p><strong style="color:var(--white)">App & Website Development</strong></p>
+      <p>100% refund if cancelled before project kickoff. After kickoff, refunds are prorated based on the percentage of work completed at the time of cancellation, less any non-recoverable third-party costs. No refund after final delivery and client sign-off.</p>
+      <p><strong style="color:var(--white)">Social Media Marketing</strong></p>
+      <p>Monthly retainers are refundable in full if cancelled before the service month begins. Mid-month cancellations are eligible for a prorated refund of the remaining unused days, excluding any ad spend already committed to platforms.</p>
+      <p><strong style="color:var(--white)">Business Registration</strong></p>
+      <p>Our service fee is refundable if we have not yet submitted your registration application. Once submission has been made to the relevant authority, our service fee is non-refundable. Government filing fees are non-refundable in all cases.</p>
+      <p><strong style="color:var(--white)">Business Consultancy</strong></p>
+      <p>Cancelled sessions with more than 48 hours' notice receive a full credit or refund. Sessions cancelled within 48 hours are non-refundable. Reports and strategic documents already delivered are non-refundable.</p>
+      <p><strong style="color:var(--white)">PR Services</strong></p>
+      <p>Monthly retainer fees are refundable if cancelled before the service period begins. Once outreach, press release distribution, or media placement has commenced, the month's retainer is non-refundable.</p>
+    </section>
+
+    <section class="section" id="s5">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2>How to Request <em>a Refund</em></h2>
+      </div>
+      <p>To initiate a refund request, please follow the steps below. Incomplete requests may result in processing delays.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-num">1</div>
+          <div class="timeline-content">
+            <h4>Contact Us in Writing</h4>
+            <p>Email or call us using the details in Section 9. Provide your full name, service purchased, payment date, and a brief reason for the refund request.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-num">2</div>
+          <div class="timeline-content">
+            <h4>Provide Supporting Information</h4>
+            <p>Attach any relevant documentation — your invoice, payment confirmation, or correspondence related to the service.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-num">3</div>
+          <div class="timeline-content">
+            <h4>Await Assessment</h4>
+            <p>Our team will review your request against this policy within 5 business days and communicate the outcome with a clear rationale.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-num">4</div>
+          <div class="timeline-content">
+            <h4>Refund Issued</h4>
+            <p>Approved refunds are returned to the original payment method within 7–10 business days of approval.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="s6">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2>Processing <em>& Timeline</em></h2>
+      </div>
+      <p>All refund requests are assessed within <strong>5 business days</strong> of receipt. Once approved:</p>
+      <ul>
+        <li>Credit/debit card refunds: 5–10 business days (depending on your bank)</li>
+        <li>Bank transfer refunds: 3–7 business days</li>
+        <li>Stripe payment refunds: 5–10 business days</li>
+      </ul>
+      <p>We will notify you by email once a refund has been processed. If you do not receive your refund within the stated timeframe, please first check with your bank or card issuer before contacting us.</p>
+    </section>
+
+    <section class="section" id="s7">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2>Disputes</h2>
+      </div>
+      <p>If you disagree with a refund decision, you may escalate the matter by emailing our leadership team. We will conduct an independent internal review and respond within 10 business days.</p>
+      <p>If the matter remains unresolved, disputes shall be governed by the laws of the State of Montana, US. Nothing in this policy limits your rights under applicable consumer protection legislation.</p>
+      <div class="callout">
+        <strong>Our Promise:</strong> We will always act in good faith. If we made an error or fell short of what was agreed, we will make it right. Your satisfaction is not a formality — it is central to how we operate.
+      </div>
+    </section>
+
+    <section class="section" id="s8">
+      <div class="section-header">
+        <span class="section-num">08</span>
+        <h2>Changes to <em>This Policy</em></h2>
+      </div>
+      <p>We may update this Refund Policy periodically to reflect changes in our services or applicable regulations. Material changes will be communicated to active clients via email. The effective date at the top of this page will be updated accordingly. Continued use of our services after changes are published constitutes your acceptance of the revised policy.</p>
+    </section>
+
+    <section class="section" id="s9">
+      <div class="section-header">
+        <span class="section-num">09</span>
+        <h2>Contact <em>Us</em></h2>
+      </div>
+      <p>For all refund enquiries, please reach out through any of the following channels:</p>
+      <div class="contact-box">
+        <h3>Get in Touch</h3>
+        <p>Our team typically responds within 1–2 business days.</p>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="label">Company</div>
+            <p>TrademarkTech Solutions</p>
+          </div>
+          <div class="contact-item">
+            <div class="label">Phone</div>
+            <a href="tel:+14064172944">+1 (406) 417-2944</a>
+          </div>
+          <div class="contact-item">
+            <div class="label">Address</div>
+            <p>1001 S. Main St., Ste 500<br>Kalispell, MT 59901, US</p>
+          </div>
+          <div class="contact-item">
+            <div class="label">Business Hours</div>
+            <p>Mon – Fri · 9:00 AM – 6:00 PM MT</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 TrademarkTech Solutions. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://trademarktechsolutions.com/">Home</a>
+      <a href="https://trademarktechsolutions.com/privacy-policy.html">Privacy Policy</a>
+      <a href="https://trademarktechsolutions.com/terms.html">Terms &amp; Conditions</a>
+      <a href="https://trademarktechsolutions.com/refund-policy.html">Refund Policy</a>
+      <a href="https://trademarktechsolutions.com/#contact">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
