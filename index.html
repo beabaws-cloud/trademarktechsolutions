@@ -621,8 +621,6 @@
           <input type="hidden" name="access_key" value="88acddc0-c13e-40a4-a199-38d276135a72" />
           <input type="hidden" name="subject" value="New Inquiry — TrademarkTech Solutions" />
           <input type="hidden" name="from_name" value="TrademarkTech Website" />
-          <!-- Hidden field records SMS consent value for form submission -->
-          <input type="hidden" name="sms_consent" id="smsConsentValue" value="No" />
 
           <div class="form-row">
             <div class="form-group">
@@ -667,16 +665,31 @@
               <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>SMS / Text Message Communication</span>
             </div>
-            <label class="sms-checkbox-row" for="smsConsent">
-              <input type="checkbox" id="smsConsent" name="sms_optin_checkbox" value="yes" />
+
+            <!-- Checkbox 1: Informational / Transactional -->
+            <label class="sms-checkbox-row" for="smsConsentInfo" style="margin-bottom:0.85rem;">
+              <input type="checkbox" id="smsConsentInfo" name="sms_optin_informational" value="yes" />
               <span class="sms-checkbox-label">
-                I agree to receive <strong>SMS/text messages</strong> from TrademarkTech Solutions at the phone number provided above. Messages may include appointment reminders, consultation follow-ups, service updates, and promotional offers. <strong>Message &amp; data rates may apply. Message frequency varies.</strong> Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for assistance. View our <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms &amp; Conditions</a>.
+                By checking, you are allowing to receive <strong>transactional/informational SMS</strong> communications regarding appointment reminders, consultation follow-ups, and service updates from <strong>TrademarkTech Solutions</strong>. Message frequency may vary. Message and data rates may apply. Reply <strong>HELP</strong> for help or <strong>STOP</strong> to opt-out.
               </span>
             </label>
-            <p id="smsError" class="sms-error">Please check the box above to confirm your SMS consent before submitting.</p>
-            <p class="sms-fine-print">
-              By checking this box, you expressly consent to receive text messages from TrademarkTech Solutions (1001 S. Main St., Ste 500, Kalispell, MT 59901). This consent is not a condition of purchase or service. You may opt out at any time by replying STOP. For help, reply HELP or contact us at <a href="tel:+14064172944">+1 (406) 417-2944</a>. Carriers are not liable for delayed or undelivered messages. See our <a href="privacy-policy.html" target="_blank">Privacy Policy</a> for details on how we handle your data.
-            </p>
+
+            <!-- Checkbox 2: Promotional / Marketing -->
+            <label class="sms-checkbox-row" for="smsConsentMarketing" style="margin-bottom:0.85rem;">
+              <input type="checkbox" id="smsConsentMarketing" name="sms_optin_marketing" value="yes" />
+              <span class="sms-checkbox-label">
+                By checking, you are allowing to receive <strong>promotional/marketing SMS</strong> communications from <strong>TrademarkTech Solutions</strong>. Frequency may vary. Message and data rates may apply. Reply <strong>HELP</strong> for help or <strong>STOP</strong> to opt-out.
+              </span>
+            </label>
+
+            <!-- Checkbox 3: Terms & Privacy -->
+            <label class="sms-checkbox-row" for="smsConsentTerms" style="padding-top:0.85rem;border-top:1px solid rgba(201,168,76,0.15);">
+              <input type="checkbox" id="smsConsentTerms" name="sms_optin_terms" value="yes" />
+              <span class="sms-checkbox-label">
+                By checking, I accept <a href="terms.html" target="_blank">Terms &amp; Conditions</a> &amp; <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+              </span>
+            </label>
+
           </div>
           <!-- ═══ END SMS OPT-IN BLOCK ═══ -->
 
@@ -770,18 +783,6 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  /* ── SMS CONSENT CHECKBOX SYNC ── */
-  const smsCheckbox = document.getElementById('smsConsent');
-  const smsConsentValue = document.getElementById('smsConsentValue');
-  const smsError = document.getElementById('smsError');
-
-  smsCheckbox.addEventListener('change', () => {
-    smsConsentValue.value = smsCheckbox.checked ? 'Yes — opted in via website contact form' : 'No';
-    if (smsCheckbox.checked) {
-      smsError.classList.remove('visible');
-    }
-  });
-
   /* ── CONTACT FORM ── */
   const form = document.getElementById('contactForm');
   const submitBtn = document.getElementById('submitBtn');
@@ -789,13 +790,6 @@
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    // Validate SMS consent checkbox
-    if (!smsCheckbox.checked) {
-      smsError.classList.add('visible');
-      smsCheckbox.closest('.sms-consent-block').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
 
     submitBtn.textContent = 'Sending…';
     submitBtn.disabled = true;
@@ -816,7 +810,6 @@
         formMessage.textContent = '✓ Thank you! Your message has been received. We\'ll be in touch shortly.';
         formMessage.style.display = 'block';
         form.reset();
-        smsConsentValue.value = 'No';
       } else {
         throw new Error(json.message || 'Submission failed');
       }
